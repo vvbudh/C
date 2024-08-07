@@ -8,7 +8,7 @@ struct triangle
 };
 
 int getUserInputSides(int& a, int& b, int& c);
-
+void calculateArea(int a, int b, int c);
 
 int main()
 {	
@@ -25,18 +25,18 @@ int main()
 	//the main namespace? without creating 3 extras. That't what I have
 	//the struct for ant triangle1.sides[0] for isn't it????????
 
-	int a = 0;
+	/*	int a = 0;
 	int b = 0;
 	int c = 0;
-	int area = 0;
+	int area = 0; */
 
 	//Use the Get User Input sides function to get the length of the sides.
-	getUserInputSides(a, b , c);
+	getUserInputSides(triangle1.sides[0], triangle1.sides[1] , triangle1.sides[2]);
 	
 	//set the variable  to the value of the cin "a" variable.
-	triangle1.sides[0] = a;
-	triangle1.sides[1] = b;
-	triangle1.sides[2] = c;
+	//triangle1.sides[0] = a;
+	//triangle1.sides[1] = b;
+	//triangle1.sides[2] = c;
 	for(int i=0;i<3;i++)
 	{
 		cout << triangle1.sides[i] << endl;
@@ -72,3 +72,28 @@ int getUserInputSides(int& a, int& b, int& c)
 }
 
 
+
+void calculateArea(int a, int b, int c)
+{
+	//Need to use Heron's formula apparently.
+	int s = 0;
+	int tmp = a + b + c;
+	s = tmp / 2;
+
+	double heron = 0.0;
+	int i = 0;
+	int k = 0;
+	int m = 0;
+
+	i = s - a;
+	k = s - b;
+	m = s - c;
+
+	heron = i*k*m;
+	heron = s * heron;
+	heron = sqrt(heron);
+
+cout << endl << heron << endl;
+
+	//sqrt(s(s-a)(s-b)(s-c));
+};
