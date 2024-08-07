@@ -35,7 +35,14 @@ int main()
 	
 	//set the variable  to the value of the cin "a" variable.
 	triangle1.sides[0] = a;
-	cout << triangle1.sides[0];
+	triangle1.sides[1] = b;
+	triangle1.sides[2] = c;
+	for(int i=0;i<3;i++)
+	{
+		cout << triangle1.sides[i] << endl;
+	}
+	
+
 }
 
 
@@ -54,10 +61,11 @@ int getUserInputSides(int& a, int& b, int& c)
 	cout << toUser;
 	//get their input.
 	//cin >> all3Sides[0];
-	
 	cin >> a;
-
-
+	cout << toUser;
+	cin >> b;
+	cout << toUser;
+	cin >> c;
 	//make function that checks value of the input.
 	//return all3Sides[0];
 	return a;
