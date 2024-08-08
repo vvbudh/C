@@ -42,7 +42,7 @@ int main()
 		cout << triangle1.sides[i] << endl;
 	}
 	
-
+	calculateArea(triangle1.sides[0], triangle1.sides[1] , triangle1.sides[2]);
 }
 
 
@@ -76,7 +76,7 @@ int getUserInputSides(int& a, int& b, int& c)
 void calculateArea(int a, int b, int c)
 {
 	//Need to use Heron's formula apparently.
-	int s = 0;
+/*	int s = 0;
 	int tmp = a + b + c;
 	s = tmp / 2;
 
@@ -94,6 +94,19 @@ void calculateArea(int a, int b, int c)
 	heron = sqrt(heron);
 
 cout << endl << heron << endl;
+*/
+
+	//divide by 2.0 so it works, and isn't division by integers. 
+	//also uhh, a b c vals are 5,7,8 and should come out to 10Sum and 17.3Area
+	double sum = 0.0;
+	double area = 0.0;
+
+	sum = (a + b + c)/2.0;
+	cout << sum << endl;
+	area = sqrt((sum)*(sum-a)*(sum-b)*(sum-c));
+	cout << area << endl;
+
+
 
 	//sqrt(s(s-a)(s-b)(s-c));
 };
