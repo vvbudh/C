@@ -1,0 +1,15 @@
+What I'm supposedly doing here.
+
+/*
+    structure that describes Triangle. It must contain sides - as integer values. It must contain Area of triangle. 
+
+    
+
+    You ask for input and fill two triangles - fill sides. 
+        One function must be independent - and argument is triangle. 
+            Declare function to fill sides INSIDE structure.
+            Declare structure that contains two triangles as pointers to them
+            Sum areas of this triangles.
+            Inside triangle struct - function to calculate area of triangles.
+
+*/
