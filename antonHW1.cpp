@@ -77,10 +77,25 @@ void getUserInputSides(int& a, int& b, int& c)
 
 	//print to user the prompt.
 			//Make error checking later.
+	///Do I have to do this for every one? Like, for every for loop
+	///do I have to make this damn thing like this, for each one? No right?
+for (;;) 
+{
 	cout << toUser;
 	//get their input.
 	//cin >> all3Sides[0];
-	cin >> a;
+	if (cin >> a)
+	{
+		break;
+	}
+		else
+		{
+			cout << "Please enter just an integer, one whole number." << endl;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+		}
+
+}
 	cout << toUser;
 	cin >> b;
 	cout << toUser;
