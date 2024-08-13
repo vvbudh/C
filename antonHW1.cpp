@@ -1,6 +1,11 @@
 #include <iostream>
 using namespace std;
-
+/*    You ask for input and fill two triangles - fill sides. 
+        One function must be independent - and argument is triangle. 
+            Declare function to fill sides INSIDE structure.
+            Declare structure that contains two triangles as pointers to them
+            Sum areas of this triangles.
+            Inside triangle struct - function to calculate area of triangles.*/
 struct triangle
 {
 	int sides[3];
@@ -9,7 +14,7 @@ struct triangle
 
 void getUserInputSides(int& a, int& b, int& c);
 double calculateArea(int a, int b, int c, double& d);
-
+int validateInput(const string& body, const string& variable);
 int main()
 {	
 	/*zero out the sides and angles. Also instantiate the first
@@ -79,7 +84,12 @@ void getUserInputSides(int& a, int& b, int& c)
 			//Make error checking later.
 	///Do I have to do this for every one? Like, for every for loop
 	///do I have to make this damn thing like this, for each one? No right?
-for (;;) 
+
+//Change this out for a function call to
+validateInput(toUser, "a");
+validateInput(toUser, "b");
+validateInput(toUser, "c");
+/*for (;;) 
 {
 	cout << toUser;
 	//get their input.
@@ -95,7 +105,7 @@ for (;;)
 			cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
 		}
 
-}
+}*/
 	cout << toUser;
 	cin >> b;
 	cout << toUser;
@@ -143,4 +153,28 @@ cout << endl << heron << endl;
 	//return area;
 	return d;
 
+}
+
+int validateInput(const string& body; const string& variable)
+{
+	int tmpValue;
+	string toUser = body + variable + ": ";
+	while(1=1)
+{
+	cout << toUser;
+	//get their input.
+	//cin >> all3Sides[0];
+	if (cin >> tmpValue)
+	{
+		break;
+	}
+		else
+		{
+			cout << "Please enter just an integer, one whole number." << endl;
+			cin.clear(); //clear error state.
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); //purge buffer.
+		}
+
+}
+	return tmpValue;
 };
