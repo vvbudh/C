@@ -8,15 +8,6 @@
 #include "infantryClass.h"
 using namespace std;
 
-struct Pos
-{
-    float x, y, z;
-    Pos()
-    {
-        x = y = z = 0.0f;
-    }
-};
-
 //Removed class def, and put it in infantryClass.h
 
 int main()

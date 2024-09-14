@@ -1,10 +1,22 @@
+// infantryClass.h
+struct Pos
+{
+    float x, y, z;
+    Pos()
+    {
+        x = y = z = 0.0f;
+    }
+};
+
 class Infantry
 {
 public:
-    float health{ 100.0f };
+    
+    float health;
+    //For some reason it's not reading the structure. It doesn't see it for some reason.
     Pos position;
 
-    //Constructor default
+    //Constructor definition
     Infantry()
     {
 
@@ -47,6 +59,6 @@ public:
 
     void printCords()
     {
-        std::cout << position.x << "/n" << position.y << "/n" << position.z << endl;
+        std::cout << position.x << "/n" << position.y << "/n" << position.z << std::endl;
     };
 };
