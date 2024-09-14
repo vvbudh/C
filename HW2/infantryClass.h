@@ -19,12 +19,14 @@ public:
     //Constructor definition
     Infantry()
     {
-
+        health = 100.0f;
     };
 
     Infantry(Pos somePos)
     {
         position = somePos;
+        health = 100.0f; //do I need to do this thrice? Like in each one? Doesn't the first constructor do it for me? 
+                        //Or does it skip it????
     };
 
     Infantry(Pos somePos, float startingHealth)
@@ -42,23 +44,32 @@ public:
     {
         //float health take 30.0 damage
         health -= 30.0f;
+        std::cout << "Standard damage taken. Health is now: " << health << std::endl;
     };
 
-    void takeSpecialDamage(float damage)
+    void takeSpecialDamage()
     {
+        float damage;
         health -= damage;
     }
 
-    void takeDamage(float damage, Pos pushVector)
+    void takeKnockbackDamage()
     {
-        health -= damage;
-        position.x = position.x - pushVector.x;
-        position.y = position.y - pushVector.y;
-        position.z = position.z - pushVector.z;
+        //Set the default damage the unit takes. Hard coded.
+        //float damage = 30.0f;
+        Pos pushVector;
+        pushVector.x = 15.0f;
+//Subtract the values from the health.
+        health -= 30.0f;
+        position.x -= 15.0f;
+        //position.x = position.x - pushVector.x;
+        //position.y = position.y - pushVector.y;
+        //position.z = position.z - pushVector.z;
     };
 
     void printCords()
     {
+        std::cout << health  << "Health" << "/n";
         std::cout << position.x << "/n" << position.y << "/n" << position.z << std::endl;
     };
 };

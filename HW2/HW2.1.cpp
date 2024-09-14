@@ -18,7 +18,7 @@ int main()
 
     while (1)
     {
-        std::cout << "TAKE DECISION: \n";
+        std::cout << "2 = Knockback ,3 = Damage, 0 = esc \n";
         std::cin >> decision;
 
         if (decision == 0)
@@ -27,7 +27,17 @@ int main()
         }
         if (decision == 1)
         {
-            // unit takes simple damage
+            void takeSpecialDamage();
+        }
+        if (decision == 2) //Knockback
+        {
+            void takeKnockbackDamage();
+            void printCords();
+        }
+        if (decision == 3) //Damage
+        {
+            void takeStandardDamage();
+            void printCords();
         }
 
         // if unit's health is < 0 
