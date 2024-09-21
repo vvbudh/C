@@ -43,12 +43,14 @@ public:
     void takeStandardDamage()
     {
         //float health take 30.0 damage
+        std::cout << "Taking 30 damage!\n";
         health -= 30.0f;
         std::cout << "Standard damage taken. Health is now: " << health << std::endl;
     };
 
     void takeSpecialDamage()
     {
+        std::cout << "Taking special damage!\n";
         float damage;
         health -= damage;
     }
@@ -57,6 +59,7 @@ public:
     {
         //Set the default damage the unit takes. Hard coded.
         //float damage = 30.0f;
+        std::cout << "Taking 15 damage + knockback!\n";
         Pos pushVector;
         pushVector.x = 15.0f;
 //Subtract the values from the health.

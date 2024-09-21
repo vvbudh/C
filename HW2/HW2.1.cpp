@@ -13,8 +13,10 @@ using namespace std;
 int main()
 {
     int msg=1;
-
     int decision = 0;
+
+    //Need to ask to get a class so we can actually access the functions below.
+    Infantry sarge;
 
     while (1)
     {
@@ -23,21 +25,25 @@ int main()
 
         if (decision == 0)
         {
+            std::cout << "0 chosen!\n";
             break;
         }
         if (decision == 1)
         {
-            void takeSpecialDamage();
+            std::cout << "1 chosen!\n";
+            sarge.takeSpecialDamage();
         }
         if (decision == 2) //Knockback
         {
-            void takeKnockbackDamage();
-            void printCords();
+            std::cout << "2 chosen!\n";
+            sarge.takeKnockbackDamage();
+            sarge.printCords();
         }
         if (decision == 3) //Damage
         {
-            void takeStandardDamage();
-            void printCords();
+            std::cout << "3 chosen!\n";
+            sarge.takeStandardDamage();
+            sarge.printCords();
         }
 
         // if unit's health is < 0 
