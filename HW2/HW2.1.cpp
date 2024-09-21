@@ -22,7 +22,6 @@ int main()
     {
         std::cout << "2 = Knockback ,3 = Damage, 0 = esc \n";
         std::cin >> decision;
-
         if (decision == 0)
         {
             std::cout << "0 chosen!\n";
@@ -44,6 +43,11 @@ int main()
             std::cout << "3 chosen!\n";
             sarge.takeStandardDamage();
             sarge.printCords();
+        }
+        //break health condition must be at end to make sure it ends when the health is below 0.
+        if (sarge.health <= 0)
+        {
+            break;
         }
 
         // if unit's health is < 0 
