@@ -2,6 +2,10 @@
 // for now, I will start with making a Corvette, and making it face off versus one single enemy. Getting together its weapons, HP, Damage.
 
 #include <iostream>
+//Random number generation.
+#include <random>
+//Get time from PC To have pseudo random set of data. Also to allow save scumming.
+#include <ctime>
 #include "ShipCharacteristics.h"
 using namespace std;
 
