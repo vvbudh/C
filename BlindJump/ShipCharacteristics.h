@@ -15,9 +15,12 @@ public:
         std::cout << "--------SHIP STATUS--------\nHP = " << HP << "\n" << speed << "m/s\n" << "CannonAmmo = " << cannonAmmo << "\nMissile Ammo = " << missileAmmo << "\n";
     };
 
-    int randomGenny(std::mt19937 gen, int min, int max)
+    int randomGenny(std::mt19937& gen, int min, int max)
     {
         std::uniform_int_distribution<> distrib(min, max);
+	//adding class.param distr.param to change the paramaters each time 
+	//so I don't get the same number over and over.
+	distrib.param(std::uniform_int_distribution<int>::param_type(min,max));
         return distrib(gen);
     };
 };
