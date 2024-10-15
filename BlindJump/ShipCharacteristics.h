@@ -14,6 +14,12 @@ public:
     void printStatusReport(){
         std::cout << "--------SHIP STATUS--------\nHP = " << HP << "\n" << speed << "m/s\n" << "CannonAmmo = " << cannonAmmo << "\nMissile Ammo = " << missileAmmo << "\n";
     };
+
+    int randomGenny(std::mt19937 gen, int min, int max)
+    {
+        std::uniform_int_distribution<> distrib(min, max);
+        return distrib(gen);
+    };
 };
 
 class Corvette : public Ship
@@ -22,14 +28,41 @@ class Corvette : public Ship
  {
     //https://www.geeksforgeeks.org/how-to-generate-random-value-by-dice-roll-in-cpp/
     //Init the random number generation.
-    int min = 50;
-    int max = 100;
+    int minHP = 50;
+    int maxHP = 100;
+    int minCannon = 0;
+    int maxCannon = 4;
+    int minLaser = 0;
+    int maxLaser = 4;
+    int minMissile = 0;
+    int maxMissile = 4;
+    int minCannonAmmo = 0;
+    int maxCannonAmmo = 400;
+    int minMissileAmmo = 0;
+    int maxMissileAmmo = 400;
+
     std::mt19937 gen(time(0));
-    std::uniform_int_distribution<> distrib(min, max);
-    //Genny Yes I mean Genny. Urban Dead
-    HP = distrib(gen);
-    std::cout << " Dice roll result is: " << HP << std::endl;
+    HP = randomGenny(gen, minHP, maxHP);
+    cannon = randomGenny(gen, minCannon, maxCannon);
+    cannonAmmo= randomGenny(gen, minCannonAmmo, maxCannonAmmo);
+    laser = randomGenny(gen, minLaser, maxLaser);
+    missile= randomGenny(gen, minMissile, maxMissile);
+    missileAmmo= randomGenny(gen, minMissileAmmo, maxMissileAmmo);
+
+    std::cout << " HP is  " << HP << std::endl;
+    std::cout << "cannons are " << cannon << std::endl;
+    std::cout << "ammo " << cannonAmmo << std::endl;
+    std::cout << "lasers are " << laser << std::endl;
+    std::cout << "missiles " << missile << std::endl;
+    std::cout << "MIssileAmmo " << missileAmmo << std::endl;
+    
 };
+
+/* ~Corvette()
+    {
+        // delete something new.
+    };
+*/
 };
 
 class Carrier  : public Ship
