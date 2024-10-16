@@ -43,7 +43,9 @@ class Corvette : public Ship
     int maxCannonAmmo = 400;
     int minMissileAmmo = 0;
     int maxMissileAmmo = 400;
+    int maxWeapons = 4;
 
+do {
     std::mt19937 gen(time(0));
     HP = randomGenny(gen, minHP, maxHP);
     cannon = randomGenny(gen, minCannon, maxCannon);
@@ -51,6 +53,8 @@ class Corvette : public Ship
     laser = randomGenny(gen, minLaser, maxLaser);
     missile= randomGenny(gen, minMissile, maxMissile);
     missileAmmo= randomGenny(gen, minMissileAmmo, maxMissileAmmo);
+    //This is a shit way of doing it but it works for now. Please change me later.
+    }while (cannon+laser+missile >= 4);
 
     std::cout << " HP is  " << HP << std::endl;
     std::cout << "cannons are " << cannon << std::endl;
