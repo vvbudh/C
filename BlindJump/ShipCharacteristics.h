@@ -23,29 +23,11 @@ public:
 	distrib.param(std::uniform_int_distribution<int>::param_type(min,max));
         return distrib(gen);
     };
-};
 
-class Corvette : public Ship
-{public:
- Corvette()
- {
-    //https://www.geeksforgeeks.org/how-to-generate-random-value-by-dice-roll-in-cpp/
-    //Init the random number generation.
-    int minHP = 50;
-    int maxHP = 100;
-    int minCannon = 0;
-    int maxCannon = 4;
-    int minLaser = 0;
-    int maxLaser = 4;
-    int minMissile = 0;
-    int maxMissile = 4;
-    int minCannonAmmo = 0;
-    int maxCannonAmmo = 400;
-    int minMissileAmmo = 0;
-    int maxMissileAmmo = 400;
-    int maxWeapons = 4;
-
-do {
+//New function to handle the reoccuring generation of the ship itself not only the instantiation of the genny.
+    void createShip(int minHP, int maxHP, int minCannon, int maxCannon, int minCannonAmmo, int maxCannonAmmo, int minLaser, int maxLaser, int minMissile, int maxMissile, int minMissileAmmo, int maxMissileAmmo, int maxWeapons)
+    {
+        do {
     std::mt19937 gen(time(0));
     HP = randomGenny(gen, minHP, maxHP);
     cannon = randomGenny(gen, minCannon, maxCannon);
@@ -56,7 +38,48 @@ do {
     //This is a shit way of doing it but it works for now. Please change me later.
     //The number has to be larger. While you have too many weapons, keep trying to decrease them.
     }while (cannon+laser+missile >= 4);
+    };
 
+
+
+
+
+};
+
+class Corvette : public Ship
+{public:
+ Corvette()
+ {//#1
+    //https://www.geeksforgeeks.org/how-to-generate-random-value-by-dice-roll-in-cpp/
+    //Init the random number generation.
+    int minHP = 50;
+    int maxHP = 100;
+    int minCannon = 0;
+    int maxCannon = 4;
+    int minCannonAmmo = 0;
+    int maxCannonAmmo = 400;
+    int minLaser = 0;
+    int maxLaser = 4;
+    int minMissile = 0;
+    int maxMissile = 4;
+    int minMissileAmmo = 0;
+    int maxMissileAmmo = 400;
+    int maxWeapons = 4;
+
+
+createShip(minHP, maxHP, minCannon, maxCannon, minCannonAmmo, maxCannonAmmo, minLaser, maxLaser, minMissile, maxMissile, minMissileAmmo, maxMissileAmmo, maxWeapons);
+/*do {
+    std::mt19937 gen(time(0));
+    HP = randomGenny(gen, minHP, maxHP);
+    cannon = randomGenny(gen, minCannon, maxCannon);
+    cannonAmmo= randomGenny(gen, minCannonAmmo, maxCannonAmmo);
+    laser = randomGenny(gen, minLaser, maxLaser);
+    missile= randomGenny(gen, minMissile, maxMissile);
+    missileAmmo= randomGenny(gen, minMissileAmmo, maxMissileAmmo);
+    //This is a shit way of doing it but it works for now. Please change me later.
+    //The number has to be larger. While you have too many weapons, keep trying to decrease them.
+    }while (cannon+laser+missile >= 4);
+*/
     std::cout << " HP is  " << HP << std::endl;
     std::cout << "cannons are " << cannon << std::endl;
     std::cout << "ammo " << cannonAmmo << std::endl;
@@ -75,7 +98,7 @@ do {
 
 
 class Frigate  : public Ship
-{
+{//#2
     public:
     int minHP = 100;
     int maxHP = 200;
@@ -94,7 +117,7 @@ class Frigate  : public Ship
 };
 
 class  Destroyer : public Ship
-{
+{//#3
     public:
     int minHP = 500;
     int maxHP = 1000;

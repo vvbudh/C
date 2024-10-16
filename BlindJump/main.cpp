@@ -19,28 +19,28 @@ int main()
 
         //Pick what ship.
         std::mt19937 gen(time(0));
-        int weak = 0; int strong = 10;
+        int weak = 0; int strong = 5; //Increase to make more space for ship class.
         int randomGenShip(std::mt19937& gen, int weak, int strong);
         std::uniform_int_distribution<> distrib(weak, strong);
         int shipClass = distrib(gen);
 
-        if (shipClass == 0)
+        if (shipClass == 1)
         {Corvette pirannah;
         pirannah.printStatusReport();
         }
-        if (shipClass == 1)
+        if (shipClass == 2)
         {Frigate mandrake;
         mandrake.printStatusReport();
         }
-        if (shipClass == 2)
+        if (shipClass == 3)
         {Destroyer doombsday;
         doombsday.printStatusReport();
         }
-        if (shipClass == 8)
+        if (shipClass == 4)
         {BattleCruiser hornet;
         hornet.printStatusReport();
         }
-        if (shipClass == 9)
+        if (shipClass == 5)
         {Carrier lord;
         lord.printStatusReport();
         }
