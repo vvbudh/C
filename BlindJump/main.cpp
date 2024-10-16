@@ -16,8 +16,34 @@ int main()
     int GAMERUNNING = 1;
     while(GAMERUNNING == 1)
     {
-        Corvette pirannah;
+
+        //Pick what ship.
+        std::mt19937 gen(time(0));
+        int weak = 0; int strong = 10;
+        int randomGenShip(std::mt19937& gen, int weak, int strong);
+        std::uniform_int_distribution<> distrib(weak, strong);
+        int shipClass = distrib(gen);
+
+        if (shipClass == 0)
+        {Corvette pirannah;
         pirannah.printStatusReport();
+        }
+        if (shipClass == 1)
+        {Frigate mandrake;
+        mandrake.printStatusReport();
+        }
+        if (shipClass == 2)
+        {Destroyer doombsday;
+        doombsday.printStatusReport();
+        }
+        if (shipClass == 8)
+        {BattleCruiser hornet;
+        hornet.printStatusReport();
+        }
+        if (shipClass == 9)
+        {Carrier lord;
+        lord.printStatusReport();
+        }
         GAMERUNNING = 0;
     }
     return 0;
