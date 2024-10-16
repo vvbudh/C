@@ -37,7 +37,13 @@ public:
     missileAmmo= randomGenny(gen, minMissileAmmo, maxMissileAmmo);
     //This is a shit way of doing it but it works for now. Please change me later.
     //The number has to be larger. While you have too many weapons, keep trying to decrease them.
-    }while (cannon+laser+missile >= 4);
+    }while (cannon+laser+missile >= maxWeapons);
+    std::cout << " HP is  " << HP << std::endl;
+    std::cout << "cannons are " << cannon << std::endl;
+    std::cout << "ammo " << cannonAmmo << std::endl;
+    std::cout << "lasers are " << laser << std::endl;
+    std::cout << "missiles " << missile << std::endl;
+    std::cout << "MissileAmmo " << missileAmmo << std::endl;
     };
 
 
@@ -68,24 +74,7 @@ class Corvette : public Ship
 
 
 createShip(minHP, maxHP, minCannon, maxCannon, minCannonAmmo, maxCannonAmmo, minLaser, maxLaser, minMissile, maxMissile, minMissileAmmo, maxMissileAmmo, maxWeapons);
-/*do {
-    std::mt19937 gen(time(0));
-    HP = randomGenny(gen, minHP, maxHP);
-    cannon = randomGenny(gen, minCannon, maxCannon);
-    cannonAmmo= randomGenny(gen, minCannonAmmo, maxCannonAmmo);
-    laser = randomGenny(gen, minLaser, maxLaser);
-    missile= randomGenny(gen, minMissile, maxMissile);
-    missileAmmo= randomGenny(gen, minMissileAmmo, maxMissileAmmo);
-    //This is a shit way of doing it but it works for now. Please change me later.
-    //The number has to be larger. While you have too many weapons, keep trying to decrease them.
-    }while (cannon+laser+missile >= 4);
-*/
-    std::cout << " HP is  " << HP << std::endl;
-    std::cout << "cannons are " << cannon << std::endl;
-    std::cout << "ammo " << cannonAmmo << std::endl;
-    std::cout << "lasers are " << laser << std::endl;
-    std::cout << "missiles " << missile << std::endl;
-    std::cout << "MissileAmmo " << missileAmmo << std::endl;
+
     
 };
 
@@ -112,8 +101,14 @@ class Frigate  : public Ship
     int maxCannonAmmo = 800;
     int minMissileAmmo = 0;
     int maxMissileAmmo = 800;
-    int maxWeapons = 12;
+    int maxWeapons = 16;
     bool AI = false;
+    
+    Frigate()
+    {
+    createShip(minHP, maxHP, minCannon, maxCannon, minCannonAmmo, maxCannonAmmo, minLaser, maxLaser, minMissile, maxMissile, minMissileAmmo, maxMissileAmmo, maxWeapons);
+    std::cout << "/n cannon" << cannon << "/n laser" << laser << "/n missile" << missile;
+    }
 };
 
 class  Destroyer : public Ship
@@ -131,9 +126,13 @@ class  Destroyer : public Ship
     int maxCannonAmmo = 4000;
     int minMissileAmmo = 0;
     int maxMissileAmmo = 1200;
-    int maxWeapons = 16;
+    int maxWeapons = 32;
     int infantry = 0;
     bool AI = false;
+    Destroyer()
+    {
+    createShip(minHP, maxHP, minCannon, maxCannon, minCannonAmmo, maxCannonAmmo, minLaser, maxLaser, minMissile, maxMissile, minMissileAmmo, maxMissileAmmo, maxWeapons);
+    }
 };
 
 /*class   : public Ship
@@ -145,6 +144,10 @@ class  Destroyer : public Ship
     int artillery = 0;
     int nuke = 0;
     bool AI = false;
+    ship0()
+    {
+    createShip(minHP, maxHP, minCannon, maxCannon, minCannonAmmo, maxCannonAmmo, minLaser, maxLaser, minMissile, maxMissile, minMissileAmmo, maxMissileAmmo, maxWeapons);
+    }
 }
 
 class   : public Ship
@@ -156,6 +159,10 @@ class   : public Ship
     int artillery = 0;
     int nuke = 0;
     bool AI = false;
+    ship1()
+    {
+    createShip(minHP, maxHP, minCannon, maxCannon, minCannonAmmo, maxCannonAmmo, minLaser, maxLaser, minMissile, maxMissile, minMissileAmmo, maxMissileAmmo, maxWeapons);
+    }
 }
 */
 class  BattleCruiser : public Ship
@@ -173,7 +180,11 @@ class  BattleCruiser : public Ship
     int maxCannonAmmo = 12000;
     int minMissileAmmo = 0;
     int maxMissileAmmo = 12000;
-    int maxWeapons = 60;
+    int maxWeapons = 64;
+    BattleCruiser()
+    {
+    createShip(minHP, maxHP, minCannon, maxCannon, minCannonAmmo, maxCannonAmmo, minLaser, maxLaser, minMissile, maxMissile, minMissileAmmo, maxMissileAmmo, maxWeapons);
+    }
 
     int infantry = 0;
     int tank = 0;
@@ -200,6 +211,11 @@ public:
     int minMissileAmmo = 0;
     int maxMissileAmmo = 400000;
     int maxWeapons = 150;
+
+    Carrier()
+    {
+    createShip(minHP, maxHP, minCannon, maxCannon, minCannonAmmo, maxCannonAmmo, minLaser, maxLaser, minMissile, maxMissile, minMissileAmmo, maxMissileAmmo, maxWeapons);
+    }
 
     int infantry = 0;
     int tank = 0;
