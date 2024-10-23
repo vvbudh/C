@@ -10,7 +10,7 @@
 //using namespace std; //I know.
 
 int pickShip();
-
+int chooseDifficulty();
 int main()
 {
     int GAMERUNNING = 1;
@@ -39,6 +39,7 @@ int main()
     {
         std::cout << "Choosen 1" << std::endl;
         pickShip();
+        chooseDifficulty();
     }
     else if(userInputMainMenu == 2)
     {
@@ -86,4 +87,43 @@ int pickShip()
     {Carrier lord;
     lord.printStatusReport();
     }
+    return shipClass;
+};
+
+int pickShip(int shipClass)
+{
+    if (shipClass == 1)
+    {Corvette pirannah;
+    pirannah.printStatusReport();
+    }
+    if (shipClass == 2)
+    {Frigate mandrake;
+    mandrake.printStatusReport();
+    }
+    if (shipClass == 3)
+    {Destroyer doombsday;
+    doombsday.printStatusReport();
+    }
+    if (shipClass == 4)
+    {BattleCruiser hornet;
+      hornet.printStatusReport();
+    }
+    if (shipClass == 5)
+    {Carrier lord;
+    lord.printStatusReport();
+    }
+    return shipClass;
+}
+
+int chooseDifficulty()
+{   int userDifficulty = -1;
+    std::cout << "Choose your difficulty for the fight. 1 Easy, 3 Normal, 4 Hard, 5 Dead..." << std::endl;
+    while (!(std::cin >> userDifficulty) or (userDifficulty > 6) or (userDifficulty < 0)) ///OMG IT WORKS
+    {
+    std::cout << "Invalid input. Please enter a number from 1-5: " << std::endl;
+    std::cout << "Choose your difficulty for the fight. 2 Easy, 3 Normal, 4 Hard, 5 Dead..." << std::endl;
+    std::cin.clear(); 
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    return userDifficulty;
 };
